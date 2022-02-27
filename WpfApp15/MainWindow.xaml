@@ -21,6 +21,14 @@
                     <MenuItem Header="Создать студента" Command="{Binding CreateStudent}"/>
                     <MenuItem Header="Список студентов" Command="{Binding ViewStudents}"/>
                 </MenuItem>
+                <MenuItem Header="Кураторы">
+                    <MenuItem Header="Создать куратора" Command="{Binding CreateCurator}"/>
+                    <MenuItem Header="Список кураторов" Command="{Binding ViewCurators}"/>
+                </MenuItem>
+                <MenuItem Header="Преподы">
+                    <MenuItem Header="Создать препода" Command="{Binding CreatePrepod}"/>
+                    <MenuItem Header="Список преподов" Command="{Binding ViewPrepods}"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <Frame Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden"/>

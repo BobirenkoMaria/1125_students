@@ -49,6 +49,59 @@ namespace WpfApp15.Model
             return students;
         }
 
+        internal List<Curator> SelectCurators(Group selectedGroup)
+        {
+            int id = selectedGroup?.ID ?? 0;
+            var curators = new List<Curator>();
+            var mySqlDB = MySqlDB.GetDB();
+            string query = $"SELECT * FROM `curator`";
+            if (mySqlDB.OpenConnection())
+            {
+                using (MySqlCommand mc = new MySqlCommand(query, mySqlDB.sqlConnection))
+                using (MySqlDataReader dr = mc.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        curators.Add(new Curator
+                        {
+                            ID = dr.GetInt32("id"),
+                            FirstName = dr.GetString("firstName"),
+                            LastName = dr.GetString("lastName"),
+                            Birthday = dr.GetDateTime("birthday")
+                        });
+                    }
+                }
+                mySqlDB.CloseConnection();
+            }
+            return curators;
+        }
+
+        internal List<Prepod> SelectPrepods(Group selectedGroup)
+        {
+            int id = selectedGroup?.ID ?? 0;
+            var prepods = new List<Prepod>();
+            var mySqlDB = MySqlDB.GetDB();
+            string query = $"SELECT * FROM `prepods`";
+            if (mySqlDB.OpenConnection())
+            {
+                using (MySqlCommand mc = new MySqlCommand(query, mySqlDB.sqlConnection))
+                using (MySqlDataReader dr = mc.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        prepods.Add(new Prepod
+                        {
+                            ID = dr.GetInt32("id"),
+                            FirstName = dr.GetString("firstName"),
+                            LastName = dr.GetString("lastName"),
+                        });
+                    }
+                }
+                mySqlDB.CloseConnection();
+            }
+            return prepods;
+        }
+
         //INSERT INTO `group` set title='1125', year = 2018;
         // возвращает ID добавленной записи
         public int Insert<T>(T value)

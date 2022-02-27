@@ -23,6 +23,11 @@ namespace WpfApp15.ViewModels
         public CommandVM ViewGroups { get; set; }
         public CommandVM CreateStudent { get; set; }
         public CommandVM ViewStudents { get; set; }
+        public CommandVM CreateCurator { get; set; }
+        public CommandVM ViewCurators { get; set; }
+        public CommandVM CreatePrepod { get; set; }
+        public CommandVM ViewPrepods { get; set; }
+
 
         public MainVM()
         {
@@ -40,6 +45,18 @@ namespace WpfApp15.ViewModels
             });
             ViewStudents = new CommandVM(()=> {
                 currentPageControl.SetPage(new ViewStudentsPage(null));
+            });
+            CreateCurator = new CommandVM(() => {
+                currentPageControl.SetPage(new EditCuratorPage(new EditCuratorVM(currentPageControl)));
+            });
+            ViewCurators = new CommandVM(() => {
+                currentPageControl.SetPage(new ViewCuratorsPage(null));
+            });
+            CreatePrepod = new CommandVM(() => {
+                currentPageControl.SetPage(new EditPrepodPage(new EditPrepodVM(currentPageControl)));
+            });
+            ViewPrepods = new CommandVM(() => {
+                currentPageControl.SetPage(new ViewPrepodsPage(null));
             });
         }
 
