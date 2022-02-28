@@ -102,6 +102,87 @@ namespace WpfApp15.Model
             return prepods;
         }
 
+        internal List<Specials> SelectSpecials(Group selectedGroup)
+        {
+            int id = selectedGroup?.ID ?? 0;
+            var specials = new List<Specials>();
+            var mySqlDB = MySqlDB.GetDB();
+            string query = $"SELECT * FROM `specials`";
+            if (mySqlDB.OpenConnection())
+            {
+                using (MySqlCommand mc = new MySqlCommand(query, mySqlDB.sqlConnection))
+                using (MySqlDataReader dr = mc.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        specials.Add(new Specials
+                        {
+                            ID = dr.GetInt32("id"),
+                            Title = dr.GetString("title"),
+                        });
+                    }
+                }
+                mySqlDB.CloseConnection();
+            }
+            return specials;
+        }
+
+        internal List<Discipline> SelectDisciplines(Group selectedGroup)
+        {
+            int id = selectedGroup?.ID ?? 0;
+            var disciplines = new List<Discipline>();
+            var mySqlDB = MySqlDB.GetDB();
+            string query = $"SELECT * FROM `discipline`";
+            if (mySqlDB.OpenConnection())
+            {
+                using (MySqlCommand mc = new MySqlCommand(query, mySqlDB.sqlConnection))
+                using (MySqlDataReader dr = mc.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        disciplines.Add(new Discipline
+                        {
+                            ID = dr.GetInt32("id"),
+                            Title = dr.GetString("title"),
+                            Prepod_id = dr.GetString("prepod_id"),
+                        });
+                    }
+                }
+                mySqlDB.CloseConnection();
+            }
+            return disciplines;
+        }
+
+        internal List<Journal> SelectJournals(Group selectedGroup)
+        {
+            int id = selectedGroup?.ID ?? 0;
+            var journal = new List<Journal>();
+            var mySqlDB = MySqlDB.GetDB();
+            string query = $"SELECT * FROM `journal`";
+            if (mySqlDB.OpenConnection())
+            {
+                using (MySqlCommand mc = new MySqlCommand(query, mySqlDB.sqlConnection))
+                using (MySqlDataReader dr = mc.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        journal.Add(new Journal
+                        {
+                            ID = dr.GetInt32("id"),
+                            Discipline_id = dr.GetString("discipline_id"),
+                            Student_id = dr.GetString("student_id"),
+                            Day = dr.GetDateTime("day"),
+                            Value = dr.GetInt32("value")
+                        });
+                    }
+                }
+                mySqlDB.CloseConnection();
+            }
+            return journal;
+        }
+
+
+
         //INSERT INTO `group` set title='1125', year = 2018;
         // возвращает ID добавленной записи
         public int Insert<T>(T value)

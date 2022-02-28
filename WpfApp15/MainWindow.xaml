@@ -29,6 +29,14 @@
                     <MenuItem Header="Создать препода" Command="{Binding CreatePrepod}"/>
                     <MenuItem Header="Список преподов" Command="{Binding ViewPrepods}"/>
                 </MenuItem>
+                <MenuItem Header="Специальности">
+                    <MenuItem Header="Создать специальность" Command="{Binding CreateSpecial}"/>
+                    <MenuItem Header="Список специальностей" Command="{Binding ViewPrepods}"/>
+                </MenuItem>
+                <MenuItem Header="Дисциплина">
+                    <MenuItem Header="Создать дисциплину" Command="{Binding CreateDiscipline}"/>
+                    <MenuItem Header="Список дисциплин" Command="{Binding ViewDisciplines}"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <Frame Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden"/>

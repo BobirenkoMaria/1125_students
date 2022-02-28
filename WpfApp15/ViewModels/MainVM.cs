@@ -27,6 +27,12 @@ namespace WpfApp15.ViewModels
         public CommandVM ViewCurators { get; set; }
         public CommandVM CreatePrepod { get; set; }
         public CommandVM ViewPrepods { get; set; }
+        public CommandVM CreateSpecial { get; set; }
+        public CommandVM ViewSpecials { get; set; }
+        public CommandVM CreateDiscipline { get; set; }
+        public CommandVM ViewDisciplines { get; set; }
+        public CommandVM CreateJournal { get; set; }
+        public CommandVM ViewJournals { get; set; }
 
 
         public MainVM()
@@ -57,6 +63,24 @@ namespace WpfApp15.ViewModels
             });
             ViewPrepods = new CommandVM(() => {
                 currentPageControl.SetPage(new ViewPrepodsPage(null));
+            });
+            CreateSpecial = new CommandVM(() => {
+                currentPageControl.SetPage(new EditSpecialPage(new EditSpecialVM(currentPageControl)));
+            });
+            ViewPrepods = new CommandVM(() => {
+                currentPageControl.SetPage(new ViewSpecialsPage(null));
+            });
+            CreateDiscipline = new CommandVM(() => {
+                currentPageControl.SetPage(new EditDisciplinePage(new EditDisciplineVM(currentPageControl)));
+            });
+            ViewDisciplines = new CommandVM(() => {
+                currentPageControl.SetPage(new ViewDisciplinesPage(null));
+            });
+            CreateJournal = new CommandVM(() => {
+                currentPageControl.SetPage(new EditJournalPage(new EditJournalVM(currentPageControl)));
+            });
+            ViewJournals = new CommandVM(() => {
+                currentPageControl.SetPage(new ViewJournalsPage(null));
             });
         }
 
