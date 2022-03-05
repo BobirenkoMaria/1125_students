@@ -7,7 +7,7 @@ using WpfApp15.Tools;
 
 namespace WpfApp15.DTO
 {
-    [Table("prepod")]
+    [Table("prepods")]
     public class Prepod : BaseDTO
     {
         [Column("lastName")]

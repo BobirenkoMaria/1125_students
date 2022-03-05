@@ -19,6 +19,6 @@
             <Label Content="Оценка"/>
             <TextBox Text="{Binding Value}"/>
         </StackPanel>
-        <Button Content="Сохранить" Command="{Binding SaveCurator}"/>
+        <Button Content="Сохранить" Command="{Binding SaveJournal}"/>
     </StackPanel>
 </Page>

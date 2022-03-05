@@ -37,6 +37,10 @@
                     <MenuItem Header="Создать дисциплину" Command="{Binding CreateDiscipline}"/>
                     <MenuItem Header="Список дисциплин" Command="{Binding ViewDisciplines}"/>
                 </MenuItem>
+                <MenuItem Header="Журнал">
+                    <MenuItem Header="Создать журнал" Command="{Binding CreateJournal}"/>
+                    <MenuItem Header="Список журналов" Command="{Binding ViewJournals}"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <Frame Content="{Binding CurrentPage}" Grid.Row="1" NavigationUIVisibility="Hidden"/>

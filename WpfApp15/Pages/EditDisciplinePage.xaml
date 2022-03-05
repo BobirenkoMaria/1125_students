@@ -15,7 +15,6 @@
             <Label Content="Препод"/>
             <TextBox Text="{Binding Prepod_id}"/>
         </StackPanel>
-        <Label Content="Группа"/>
         <Button Content="Сохранить" Command="{Binding SaveDiscipline}"/>
     </StackPanel>
 </Page>

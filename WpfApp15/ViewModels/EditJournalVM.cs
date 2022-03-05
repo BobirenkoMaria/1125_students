@@ -48,11 +48,11 @@ namespace WpfApp15.ViewModels
         {
             Groups = SqlModel.GetInstance().SelectGroupsRange(0, 100);
             SaveJournal = new CommandVM(() => {
-                //if (CuratorGroup == null)
-                //{
-                //    System.Windows.MessageBox.Show("Нужно выбрать группу для продолжения");
-                //    return;
-                //}
+                if (EditJournal.Value < 2 || EditJournal.Value > 5)
+                {
+                    System.Windows.MessageBox.Show("Оценка должна быть в пределе от 2 до 5");
+                    return;
+                }
                 //                EditCurator.GroupId = CuratorGroup.ID;
                 var model = SqlModel.GetInstance();
                 if (EditJournal.ID == 0)
